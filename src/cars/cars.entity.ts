@@ -7,6 +7,12 @@ export class Cars{
     id: number;
 
     @Column()
+    fabricante: string;
+    
+    @Column()
+    modelo: string;
+
+    @Column()
     situacion:string;
 
     @Column()
@@ -16,29 +22,17 @@ export class Cars{
     AnioModelo: number;
 
     @Column()
+    kilometraje: number;
+
+    @Column()
     chapa: string;
 
     @Column()
     chasis: string;
 
     @Column()
-    fabricante: string;
-
-    @Column()
-    kilometraje: number;
-
-    @Column()
-    modelo: string;
-
-    @Column()
-    titulo: string;
-
-    @Column()
     fechaCreacion: Date;
 
     @Column()
     descripcion: string;
-
-    @Column()
-    tipoServicio: TipoServicio;
 }

@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsEnum, IsOptional, IsString, Length} from "class-validator";
+import { IsEnum, IsInt, IsOptional, IsString, Length} from "class-validator";
 import {TipoServicio} from "../enums/TipoServicio";
 
 
@@ -7,15 +7,27 @@ export class CarsDto {
 
     @IsString()
     @IsOptional()
+    fabricante: string;
+
+    @IsString()
+    @IsOptional()
+    modelo: string;
+
+    @IsString()
+    @IsOptional()
     situacion:string;
 
-    @Length(1)
+    @IsInt()
     @IsOptional()
     AnioFabricacion: number;
 
-    @Length(1)
+    @IsInt()
     @IsOptional()
     AnioModelo: number;
+
+    @IsInt()
+    @IsOptional()
+    kilometraje: number;
 
     @IsString()
     @IsOptional()
@@ -25,24 +37,6 @@ export class CarsDto {
     @IsOptional()
     chasis: string;
 
-    @IsString()
-    @IsOptional()
-    fabricante: string;
-
-
-    @Length(1)
-    @IsOptional()
-    kilometraje: number;
-
-    @IsString()
-    @IsOptional()
-    modelo: string;
-
-
-    @IsString()
-    @IsString()
-    titulo: string;
-
     @Type(()=> Date)
     @IsOptional()
     fechaCreacion: Date;
@@ -50,8 +44,5 @@ export class CarsDto {
     @IsString()
     @IsOptional()
     descripcion: string;
-
-    @IsEnum(TipoServicio, {message: `Opcion invalida`})
-    tipoServicio: TipoServicio;
 
 }
