@@ -8,15 +8,7 @@ export class UsuariosDto {
     
     @Length(1)
     @IsString()
-    nombre: string;
-
-    @IsString()
-    @IsOptional()
-    Apellido: string;
-
-    @IsInt()
-    @IsOptional()
-    Ci: number;
+    nombreApellido: string;
 
     @IsString()
     @IsOptional()

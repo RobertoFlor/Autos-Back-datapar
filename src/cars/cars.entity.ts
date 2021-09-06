@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ServiciosDto } from "src/Servicios/servicios.dto";
+import { Servicios } from "src/Servicios/servicios.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import {TipoServicio} from "../enums/TipoServicio";
 
 @Entity()
@@ -35,4 +37,7 @@ export class Cars{
 
     @Column()
     descripcion: string;
+    
+    @OneToMany(() => Servicios, servicios => servicios.cars,{ cascade: true })
+     servicios: Array<ServiciosDto>;
 }
