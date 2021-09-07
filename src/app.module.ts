@@ -14,7 +14,7 @@ import {ServiciosModule} from "./Servicios/servicios.module";
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test1',
+      database: 'test2',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
