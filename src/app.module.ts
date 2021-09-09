@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import {CarsModule} from "./cars/cars.module";
 import {UsuariosModule} from "./usuarios/usuarios.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
+import { AgendamientoModule } from './Agendamiento/agendamiento.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import {ServiciosModule} from "./Servicios/servicios.module";
     }),
     CarsModule,
     UsuariosModule,
-    ServiciosModule],
+    ServiciosModule,
+    AgendamientoModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -40,4 +40,5 @@ export class Cars{
     
     @OneToOne(() => Servicios, servicios => servicios.cars,{ cascade: true })
      servicios: Array<Servicios>;
+    agendamiento: any;
 }

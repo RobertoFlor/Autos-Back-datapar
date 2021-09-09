@@ -31,5 +31,4 @@ export class Usuarios{
     @OneToOne(() => Servicios, servicios => servicios.usuarios,{ cascade: true })
      servicios: Array<Servicios>;
 
-
 }
