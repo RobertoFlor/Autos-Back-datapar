@@ -1,7 +1,5 @@
-import { ServiciosDto } from "src/Servicios/servicios.dto";
 import { Servicios } from "src/Servicios/servicios.entity";
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import {TipoServicio} from "../enums/TipoServicio";
 
 @Entity()
 export class Cars{
@@ -23,6 +21,7 @@ export class Cars{
     @Column()
     AnioModelo: number;
 
+    //TAMBIEN CORREGIR 
     @Column()
     kilometraje: number;
 
@@ -39,6 +38,5 @@ export class Cars{
     descripcion: string;
     
     @OneToOne(() => Servicios, servicios => servicios.cars,{ cascade: true })
-     servicios: Array<Servicios>;
-    agendamiento: any;
+    servicios: Array<Servicios>;
 }

@@ -7,6 +7,7 @@ import {UsuariosModule} from "./usuarios/usuarios.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,7 +26,8 @@ import { AgendamientoModule } from './Agendamiento/agendamiento.module';
     CarsModule,
     UsuariosModule,
     ServiciosModule,
-    AgendamientoModule],
+    AgendamientoModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

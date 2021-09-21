@@ -17,7 +17,7 @@ export class ServiciosService {
     
       async getById(id: number) {
         const post = await this.repository.findOne(id);
-        if (!post) throw new NotFoundException('Task does not exist');
+        if (!post) throw new NotFoundException('El id ingresado no existe');
         return post;
       }
     
@@ -29,7 +29,7 @@ export class ServiciosService {
       async editOne(id: number, dto: ServiciosDto) {
         const servicios = await this.repository.findOne(id);
     
-        if (!servicios) throw new NotFoundException('Task does not exist');
+        if (!servicios) throw new NotFoundException('El id ingresado no existe');
     
         const editedServicios = Object.assign(servicios, dto);
         return await this.repository.save(editedServicios);
