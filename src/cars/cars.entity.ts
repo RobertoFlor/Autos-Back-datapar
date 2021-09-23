@@ -1,5 +1,5 @@
 import { Servicios } from "src/Servicios/servicios.entity";
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Cars{
@@ -37,6 +37,6 @@ export class Cars{
     @Column()
     descripcion: string;
     
-    @OneToOne(() => Servicios, servicios => servicios.cars,{ cascade: true })
+    @ManyToOne(() => Servicios, servicios => servicios.cars,{ cascade: true })
     servicios: Array<Servicios>;
 }

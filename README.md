@@ -1,23 +1,9 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-# Task
-
-# CRUD REST API con Nest JS, Postgres y Typescript
-- Este es un proyecto desafío para los pasantes universitarios.
-
-## Software Requerido
-- NodeJS
-- Postgres
-
 ## CONFIGURACIONES
-
 ### CONFIGURAR EL PROYECTO
 - Para instalar las dependencias correr el comando `npm i`
 
 ### CONFIGURAR EL SERVIDOR
-- Crear una base de datos `task` en Postgres 
+- Crear una base de datos en Postgres 
 
 - Ir a src/app.module.ts y modificar de acuerdo a sus credenciales
 
@@ -44,10 +30,8 @@
  ```
 
 ## INICIALIZACIONES
-
 ### COMPILAR Y CORRER EL PROYECTO
-- Para correr el proyecto usar el comando `npm run start:dev`
-
+- Para correr el proyecto usar el comando `npm run start`
 
 ### Acceso a las rutas y documentación.
  - Se puede acceder al `localhost:3000/docs`para tener acceso a las rutas del proyecto

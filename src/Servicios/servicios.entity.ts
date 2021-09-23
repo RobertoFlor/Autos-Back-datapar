@@ -1,7 +1,7 @@
 import { Cars } from "src/cars/cars.entity";
 import { TipoServicio } from "src/enums/TipoServicio";
 import { Usuarios } from "src/usuarios/usuarios.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Servicios{
@@ -26,10 +26,10 @@ export class Servicios{
     @Column()
     fechaCreacion: Date;
 
-    @OneToOne(type => Usuarios, usuarios => usuarios.servicios)
+    @ManyToOne(type => Usuarios, usuarios => usuarios.servicios)
     usuarios:Usuarios;
 
-    @OneToOne(type => Cars, cars => cars.servicios)
+    @ManyToOne(type => Cars, cars => cars.servicios)
     cars:Cars;
 
 }

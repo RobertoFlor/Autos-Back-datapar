@@ -15,7 +15,7 @@ export class Agendamiento{
     @Column()
     fecha_programada: Date;
 
-    /*@OneToOne(type => Cars, cars => cars.agendamiento)
-    cars:Cars;*/
-    
+    @ManyToOne(() => Agendamiento, agendamiento => agendamiento.cars,{ cascade: true })
+    agendamiento: Array<Agendamiento>;
+    cars:Cars;
 }

@@ -1,7 +1,7 @@
 import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 import { Servicios } from "src/Servicios/servicios.entity";
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Usuarios{
@@ -26,7 +26,7 @@ export class Usuarios{
     @Column()
     fechaCreacion: Date;
 
-    @OneToOne(() => Servicios, servicios => servicios.usuarios,{ cascade: true })
+    @ManyToOne(() => Servicios, servicios => servicios.usuarios,{ cascade: true })
      servicios: Array<Servicios>;
 
 }

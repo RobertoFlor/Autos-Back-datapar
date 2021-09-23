@@ -16,7 +16,7 @@ import { AgendamientoModule } from './Agendamiento/agendamiento.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test2',
+      database: 'test9',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,

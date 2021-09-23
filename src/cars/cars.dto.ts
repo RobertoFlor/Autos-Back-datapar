@@ -3,10 +3,7 @@ import { IsInt, IsNotEmpty, IsOptional, IsString} from "class-validator";
 import { Cars } from "./cars.entity";
 
 export class CarsDto {
-
-    @IsNotEmpty()
-    cars:Cars;
-
+    
     @IsString()
     @IsOptional()
     fabricante: string;
