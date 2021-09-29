@@ -1,14 +1,11 @@
-import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
 import { IsDate, IsEnum, IsInt, IsNumber, IsOptional, IsString, Length } from "class-validator";
-import { Cars } from "src/cars/cars.entity";
-import { TipoServicio } from "src/enums/TipoServicio";
+import { TipoAgendamiento } from "src/enums/TipoAgendamiento";
+import { Uso } from "src/enums/Uso";
+
 
 
 export class AgendamientoDto {
-    @ApiProperty()
-    cars: Cars;
-
     @Type(()=> Date)
     @IsOptional()
     fecha_programada: Date;
@@ -16,5 +13,27 @@ export class AgendamientoDto {
     @IsString()
     @IsOptional()
     descripcion: string;
+
+    @IsString()
+    @IsOptional()
+    periodo: string;
+
+    @IsEnum(Uso, {message: 'Error en situacion'})
+    uso: Uso;
+
+    @IsEnum(TipoAgendamiento, {message: 'Error tipo agendamiento'})
+    tipoAgendamiento: TipoAgendamiento;
+
+    @Type(()=> Date)
+    @IsOptional()
+    fecha_Objetivo: Date;
+
+    @Type(()=> Date)
+    @IsOptional()
+    fechaCreacion: Date;
+
+    @Type(() => Date)
+    @IsOptional()
+    fechaAlteracion:Date;
     
 }

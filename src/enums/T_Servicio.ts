@@ -1,4 +1,4 @@
-export enum TipoServicio {
+export enum T_Servicio {
     ABASTECIMIENTO= 'Abastecimiento',
     TALLER = 'Taller',
 }

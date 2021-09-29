@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
-import { IsInt, IsNotEmpty, IsOptional, IsString} from "class-validator";
-import { Cars } from "./cars.entity";
+import { IsEnum, IsInt, IsNotEmpty, IsOptional, IsString} from "class-validator";
+import { Situacion } from "src/enums/Situacion";
 
 export class CarsDto {
     
@@ -12,9 +12,8 @@ export class CarsDto {
     @IsOptional()
     modelo: string;
 
-    @IsString()
-    @IsOptional()
-    situacion:string;
+    @IsEnum(Situacion, {message: 'Error en situacion'})
+    situacion: Situacion;
 
     @IsInt()
     @IsOptional()
@@ -24,8 +23,7 @@ export class CarsDto {
     @IsOptional()
     AnioModelo: number;
 
-    //NO FUNCIONA 
-    //CORRIGELO -_-
+    //ver para cambiar 
     @IsInt()
     @IsOptional()
     kilometraje: number;
@@ -38,12 +36,16 @@ export class CarsDto {
     @IsOptional()
     chasis: string;
 
+    @IsString()
+    @IsOptional()
+    descripcion: string;
+
     @Type(()=> Date)
     @IsOptional()
     fechaCreacion: Date;
 
-    @IsString()
+    @Type(() => Date)
     @IsOptional()
-    descripcion: string;
+    fechaAlteracion:Date;
 
 }

@@ -3,7 +3,7 @@ import { TipoUsuario } from "src/enums/TipoUsuario";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Usuarios{
+export class TipoServicio{
     @PrimaryGeneratedColumn()
     id: number;
 

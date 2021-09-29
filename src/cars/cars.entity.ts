@@ -1,4 +1,3 @@
-import { Servicios } from "src/Servicios/servicios.entity";
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -32,11 +31,11 @@ export class Cars{
     chasis: string;
 
     @Column()
+    descripcion: string;
+
+    @Column()
     fechaCreacion: Date;
 
     @Column()
-    descripcion: string;
-    
-    @ManyToOne(() => Servicios, servicios => servicios.cars,{ cascade: true })
-    servicios: Array<Servicios>;
+    fechaAlteracion: Date;
 }
