@@ -8,21 +8,7 @@ export class TipoServicioDto {
     
     @Length(1)
     @IsString()
-    nombreApellido: string;
-
-    @IsString()
-    @IsOptional()
-    login: string;
-
-    @IsString()
-    @IsOptional()
-    Contrasenia: string;
-    
-    @IsEnum(Situacion, {message:'Error en situacion'})
-    situacion: Situacion;
-
-    @IsEnum(TipoUsuario,{message: 'Error en tipo usuario'})
-    tipoUsuario: TipoUsuario;
+    descripcion: string;
 
     @Type(()=> Date)
     @IsOptional()

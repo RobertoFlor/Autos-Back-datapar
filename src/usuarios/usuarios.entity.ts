@@ -11,10 +11,10 @@ export class Usuarios{
     nombreApellido: string;
 
     @Column()
-    Contrasenia: string;
+    login: string;
 
     @Column()
-    login: string;
+    Contrasenia: string;
 
     @Column()
     situacion: Situacion;

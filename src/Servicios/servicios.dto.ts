@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
 import { IsDate, IsEnum, IsInt, IsNumber, IsOptional, IsString, Length } from "class-validator";
-import { T_Servicio } from "src/enums/T_Servicio";
+import { EstadoServicio } from "src/enums/EstadoServicio";
 
 export class ServiciosDto {
       
@@ -16,12 +16,12 @@ export class ServiciosDto {
     @IsOptional()
     KmFinal: number;
 
-    @IsEnum(T_Servicio, {message: 'Error en tipo servicio'})
-    t_Servicio: T_Servicio;
-
     @IsNumber()
     @IsOptional()
     ValorServicio: number;
+
+    @IsEnum(EstadoServicio,{message: 'Error en estado servicio'})
+    estadoServicio: EstadoServicio;
 
     @Type(()=> Date)
     @IsOptional()

@@ -1,6 +1,5 @@
 
 import { Cars } from "src/cars/cars.entity";
-import { T_Servicio } from "src/enums/T_Servicio";
 import { Usuarios } from "src/usuarios/usuarios.entity";
 import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -14,9 +13,6 @@ export class Agendamiento{
 
     @Column()
     fecha_Objetivo: Date;
-
-    @Column()
-    fecha_programada: Date;
 
     @Column()
     periodo: string;

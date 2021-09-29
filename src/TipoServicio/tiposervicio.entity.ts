@@ -8,19 +8,7 @@ export class TipoServicio{
     id: number;
 
     @Column()
-    nombreApellido: string;
-
-    @Column()
-    Contrasenia: string;
-
-    @Column()
-    login: string;
-
-    @Column()
-    situacion: Situacion;
-
-    @Column()
-    tipoUsuario: TipoUsuario;
+    descripcion: string;
 
     @Column()
     fechaCreacion: Date;

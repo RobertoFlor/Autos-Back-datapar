@@ -1,4 +1,3 @@
-import { T_Servicio } from "src/enums/T_Servicio";
 import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -16,10 +15,10 @@ export class Servicios{
     KmFinal: number;
 
     @Column()
-    t_Servicio: T_Servicio;
+    ValorServicio: number;
 
     @Column()
-    ValorServicio: number;
+    estadoServicio: string;
 
     @Column()
     fechaInicio: Date;

@@ -6,10 +6,6 @@ import { Uso } from "src/enums/Uso";
 
 
 export class AgendamientoDto {
-    @Type(()=> Date)
-    @IsOptional()
-    fecha_programada: Date;
-
     @IsString()
     @IsOptional()
     descripcion: string;
@@ -18,7 +14,7 @@ export class AgendamientoDto {
     @IsOptional()
     periodo: string;
 
-    @IsEnum(Uso, {message: 'Error en situacion'})
+    @IsEnum(Uso, {message: 'Error en la carga del uso'})
     uso: Uso;
 
     @IsEnum(TipoAgendamiento, {message: 'Error tipo agendamiento'})
