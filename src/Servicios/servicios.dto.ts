@@ -1,8 +1,20 @@
 import { Type } from "class-transformer";
-import { IsDate, IsEnum, IsInt, IsNumber, IsOptional, IsString, Length } from "class-validator";
+import { IsDate, IsEnum, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Length } from "class-validator";
+import { Cars } from "src/cars/cars.entity";
 import { EstadoServicio } from "src/enums/EstadoServicio";
+import { TipoServicio } from "src/TipoServicio/tiposervicio.entity";
+import { Usuarios } from "src/usuarios/usuarios.entity";
 
 export class ServiciosDto {
+
+    @IsNotEmpty()
+    cars: Cars;
+
+    @IsNotEmpty()
+    usuarios: Usuarios;
+
+    @IsNotEmpty()
+    tiposervicio: TipoServicio;
       
     @IsString()
     @IsOptional()

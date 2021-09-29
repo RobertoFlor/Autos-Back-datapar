@@ -28,4 +28,16 @@ export class Agendamiento{
 
     @Column()
     fechaAlteracion: Date;
+
+    @ManyToOne(() => Cars, (cars) => cars.servicios, {
+        nullable: false,
+        onDelete: 'CASCADE',
+      })
+      cars: Cars;
+
+      @ManyToOne(() => Usuarios, (usuarios) => usuarios.servicios, {
+        nullable: false,
+        onDelete: 'CASCADE',
+      })
+      usuarios: Usuarios;
 }

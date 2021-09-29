@@ -1,7 +1,11 @@
-import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Cars } from "src/cars/cars.entity";
+import { TipoServicio } from "src/TipoServicio/tiposervicio.entity";
+import { Usuarios } from "src/usuarios/usuarios.entity";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Servicios{
+    [x: string]: any;
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -32,4 +36,21 @@ export class Servicios{
     @Column()
     fechaAlteracion: Date;
 
-}
+    @ManyToOne(() => Cars, (cars) => cars.servicios, {
+        nullable: false,
+        onDelete: 'CASCADE',
+      })
+      cars: Cars;
+
+      @ManyToOne(() => Usuarios, (usuarios) => usuarios.servicios, {
+        nullable: false,
+        onDelete: 'CASCADE',
+      })
+      usuarios: Usuarios;
+
+      @ManyToOne(() => TipoServicio, (tiposervicio) => tiposervicio.servicios, {
+        nullable: false,
+        onDelete: 'CASCADE',
+      })
+      tiposervicio: TipoServicio;
+    }

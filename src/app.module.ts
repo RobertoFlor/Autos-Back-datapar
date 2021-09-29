@@ -17,7 +17,7 @@ import { TipoServicioModule } from './TipoServicio/tiposervicio.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test9',
+      database: 'test12',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
