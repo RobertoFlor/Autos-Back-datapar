@@ -1,3 +1,4 @@
+import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
 import { TipoServicio } from "src/TipoServicio/tiposervicio.entity";
 import { Usuarios } from "src/usuarios/usuarios.entity";
@@ -5,7 +6,6 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn 
 
 @Entity()
 export class Servicios{
-    [x: string]: any;
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -48,9 +48,10 @@ export class Servicios{
       })
       usuarios: Usuarios;
 
-      @ManyToOne(() => TipoServicio, (tiposervicio) => tiposervicio.servicios, {
+      @ManyToOne(() => Agendamiento, (agendamiento) => agendamiento.servicios, {
         nullable: false,
         onDelete: 'CASCADE',
       })
-      tiposervicio: TipoServicio;
+      agendamiento: Agendamiento;
+      
     }

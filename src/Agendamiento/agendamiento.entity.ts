@@ -1,7 +1,8 @@
 
 import { Cars } from "src/cars/cars.entity";
+import { Servicios } from "src/Servicios/servicios.entity";
 import { Usuarios } from "src/usuarios/usuarios.entity";
-import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Agendamiento{
@@ -40,4 +41,11 @@ export class Agendamiento{
         onDelete: 'CASCADE',
       })
       usuarios: Usuarios;
+
+      @OneToMany(() => Servicios, (servicios) => servicios.agendamiento, {
+        eager: true,
+        persistence: true,
+      })
+      servicios: Servicios[];
+      
 }

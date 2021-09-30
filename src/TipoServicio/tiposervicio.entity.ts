@@ -17,10 +17,5 @@ export class TipoServicio{
     @Column()
     fechaAlteracion:Date;
 
-    @OneToMany(() => Servicios, (servicios) => servicios.TipoServicio, {
-        eager: true,
-        persistence: true,
-      })
-      servicios: Servicios[];
     
 }
