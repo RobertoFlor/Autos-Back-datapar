@@ -1,6 +1,5 @@
 import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
-import { TipoServicio } from "src/TipoServicio/tiposervicio.entity";
 import { Usuarios } from "src/usuarios/usuarios.entity";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -8,6 +7,9 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn 
 export class Servicios{
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column()
+    tipoServicio: string;
 
     @Column()
     descripcion: string;

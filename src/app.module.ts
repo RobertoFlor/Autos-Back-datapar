@@ -6,8 +6,6 @@ import {CarsModule} from "./cars/cars.module";
 import {UsuariosModule} from "./usuarios/usuarios.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
-import { TipoServicioModule } from './TipoServicio/tiposervicio.module';
-
 
 @Module({
   imports: [
@@ -17,7 +15,7 @@ import { TipoServicioModule } from './TipoServicio/tiposervicio.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test12',
+      database: 'test7',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
@@ -27,8 +25,7 @@ import { TipoServicioModule } from './TipoServicio/tiposervicio.module';
     CarsModule,
     UsuariosModule,
     ServiciosModule,
-    AgendamientoModule,
-    TipoServicioModule
+    AgendamientoModule
   ],
   controllers: [AppController],
   providers: [AppService],
