@@ -1,9 +1,9 @@
 import { Type } from "class-transformer";
-import { IsDate, IsEnum, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Length } from "class-validator";
+import { IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { Cars } from "src/cars/cars.entity";
 import { TipoAgendamiento } from "src/enums/TipoAgendamiento";
 import { Uso } from "src/enums/Uso";
-import { Usuarios } from "src/usuarios/usuarios.entity";
+import { Users } from "src/Users/users.entity";
 
 
 
@@ -12,7 +12,7 @@ export class AgendamientoDto {
     cars: Cars;
 
     @IsNotEmpty()
-    usuarios: Usuarios;
+    users: Users
 
     @IsString()
     @IsOptional()

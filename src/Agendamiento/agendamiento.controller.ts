@@ -7,35 +7,35 @@ import { AgendamientoService } from './agendamiento.service';
 @Controller('agendamiento')
 export class AgendamientosController {
 
-    constructor(private readonly service: AgendamientoService) {}
+    constructor(private readonly agendamiento: AgendamientoService) {}
 
   @Get()
   async getMany() {
-    const data = await this.service.getAll();
+    const data = await this.agendamiento.getAll();
     return { data };
   }
 
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
-    const data = await this.service.getById(id);
+    const data = await this.agendamiento.getById(id);
     return { data };
   }
 
   @Post()
   async createPost(@Body() dto: AgendamientoDto) {
-    const data = await this.service.createOne(dto);
+    const data = await this.agendamiento.createOne(dto);
     return data;
   }
 
   @Put(':id')
   async editOne(@Param('id') id: number, @Body() dto: AgendamientoDto) {
-    const data = await this.service.editOne(id, dto);
+    const data = await this.agendamiento.editOne(id, dto);
     return data;
   }
 
   @Delete(':id')
   async deleteOne(@Param('id') id: number) {
-    const data = await this.service.deleteOne(id);
+    const data = await this.agendamiento.deleteOne(id);
     return data;
   }
 

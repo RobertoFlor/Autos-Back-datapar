@@ -4,7 +4,7 @@ import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 
 
-export class UsuariosDto {
+export class UsersDto {
     
     @Length(1)
     @IsString()

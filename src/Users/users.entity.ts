@@ -2,10 +2,10 @@ import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 import { Servicios } from "src/Servicios/servicios.entity";
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Usuarios{
+export class Users{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -30,14 +30,14 @@ export class Usuarios{
     @Column()
     fechaAlteracion:Date;
 
-    @OneToMany(() => Servicios, (servicios) => servicios.usuarios, {
+    @OneToMany(() => Servicios, (servicios) => servicios.users, {
         eager: true,
         persistence: true,
       })
       servicios: Servicios[];
 
     
-      @OneToMany(() => Agendamiento, (agendamiento) => agendamiento.usuarios, {
+      @OneToMany(() => Agendamiento, (agendamiento) => agendamiento.users, {
         eager: true,
         persistence: true,
       })

@@ -1,6 +1,6 @@
 import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
-import { Usuarios } from "src/usuarios/usuarios.entity";
+import { Users } from "src/Users/users.entity";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -44,11 +44,11 @@ export class Servicios{
       })
       cars: Cars;
 
-      @ManyToOne(() => Usuarios, (usuarios) => usuarios.servicios, {
+      @ManyToOne(() => Users, (users) => users.servicios, {
         nullable: false,
         onDelete: 'CASCADE',
       })
-      usuarios: Usuarios;
+      users: Users;
 
       @ManyToOne(() => Agendamiento, (agendamiento) => agendamiento.servicios, {
         nullable: false,

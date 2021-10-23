@@ -22,17 +22,17 @@ export class AgendamientoService {
       }
     
       async createOne(dto: AgendamientoDto) {
-        const servicios = this.repository.create(dto);
-        return await this.repository.save(servicios);
+        const agendamiento = this.repository.create(dto);
+        return await this.repository.save(agendamiento);
       }
     
       async editOne(id: number, dto: AgendamientoDto) {
-        const servicios = await this.repository.findOne(id);
+        const agendamiento = await this.repository.findOne(id);
     
-        if (!servicios) throw new NotFoundException('not exist');
+        if (!agendamiento) throw new NotFoundException('not exist');
     
-        const editedServicios = Object.assign(servicios, dto);
-        return await this.repository.save(editedServicios);
+        const editedAgendamiento = Object.assign(agendamiento, dto);
+        return await this.repository.save(editedAgendamiento);
       }
     
       async deleteOne(id: number) {

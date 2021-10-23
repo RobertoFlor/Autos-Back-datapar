@@ -1,13 +1,13 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { UsuariosDto } from './usuarios.dto';
-import { UsuariosService } from './usuarios.service';
+import { UsersDto } from './users.dto';
+import { UsersService } from './users.service';
 
 @ApiTags('Users')
 @Controller('users')
-export class UsuariosController {
+export class UsersController {
 
-    constructor(private readonly service: UsuariosService) {}
+    constructor(private readonly service: UsersService) {}
 
   @Get()
   async getMany() {
@@ -22,13 +22,13 @@ export class UsuariosController {
   }
 
   @Post()
-  async createPost(@Body() dto: UsuariosDto) {
+  async createPost(@Body() dto: UsersDto) {
     const data = await this.service.createOne(dto);
     return data;
   }
 
   @Put(':id')
-  async editOne(@Param('id') id: number, @Body() dto: UsuariosDto) {
+  async editOne(@Param('id') id: number, @Body() dto: UsersDto) {
     const data = await this.service.editOne(id, dto);
     return data;
   }
