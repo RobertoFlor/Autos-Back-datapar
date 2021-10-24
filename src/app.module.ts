@@ -6,6 +6,9 @@ import {CarsModule} from "./cars/cars.module";
 import {UsersModule} from "./Users/users.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
+import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { use } from 'passport';
 
 @Module({
   imports: [
@@ -25,7 +28,8 @@ import { AgendamientoModule } from './Agendamiento/agendamiento.module';
     CarsModule,
     UsersModule,
     ServiciosModule,
-    AgendamientoModule
+    AgendamientoModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
