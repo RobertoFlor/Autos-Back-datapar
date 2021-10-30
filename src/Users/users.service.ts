@@ -4,15 +4,21 @@ import { Repository } from 'typeorm';
 import { UsersDto} from './users.dto';
 import { Users } from './users.entity';
 
-export type User = any;
+export type User = {
+  Id: number;
+  name: string;
+  username: string;
+  password: string;
+}
 
 @Injectable()
 
 export class UsersService {
-      constructor(
+    constructor(
         @InjectRepository(Users)
         private readonly repository: Repository<Users>,
       ) {}
+      
     
       async getAll() {
         return await this.repository.find();
@@ -43,24 +49,21 @@ export class UsersService {
       }
 
 
-
-      //autenticacion 
+      //Autenticaion 
       private readonly users = [
         {
-          userId: 1,
-          username: 'j',
-          password: 'ca',
-        },
-        {
-          userId: 2,
-          username: 'maria',
-          password: 'guess',
+          Id: 1,
+          name: 'test',
+          username: 'john',
+          password: 'changeme',
         },
       ];
+      
     
       async findOne(username: string): Promise<User | undefined> {
         return this.users.find(user => user.username === username);
-      }
     }
+}
+    
 
 
