@@ -3,6 +3,7 @@ import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 import { Servicios } from "src/Servicios/servicios.entity";
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { classToPlain, Exclude } from "class-transformer";
 import * as bcrypt from 'bcrypt';
 @Entity()
 export class Users{
@@ -16,6 +17,7 @@ export class Users{
     login: string;
 
     @Column()
+    @Exclude({ toPlainOnly: true})
     password: string;
 
     @Column()
@@ -43,7 +45,9 @@ export class Users{
       })
       agendamiento: Agendamiento[];
 
-
+      toJSON(){
+        return classToPlain(this);
+      }
       //aut
       @BeforeInsert()
       @BeforeUpdate()

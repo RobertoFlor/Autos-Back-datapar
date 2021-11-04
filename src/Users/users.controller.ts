@@ -9,9 +9,7 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
 
-    constructor(readonly service: UsersService) {
-    //aca
-    }
+    constructor(readonly service: UsersService) {}
 
   @UseGuards(AuthGuard('jwt'))
   @Get()

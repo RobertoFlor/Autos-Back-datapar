@@ -45,6 +45,11 @@ export class UsersService {
       }
 
 
+
+      async getUserByLogin(login:string){
+        return await this.repository.findOne({login});
+    }
+  
       //aut
       async changePassword(dto:ChangeUserPassDto){
         const user = await this.repository.findOne({login:dto.login});
@@ -56,10 +61,8 @@ export class UsersService {
         }
     }
 
-    async getUserByLogin(login:string){
-      return await this.repository.findOne({login});
-  }
 
+    
 }
     
 
