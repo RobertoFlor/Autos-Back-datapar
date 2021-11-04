@@ -16,7 +16,7 @@ export class UsersDto {
 
     @IsString()
     @IsOptional()
-    Contrasenia: string;
+    password: string;
     
     @IsEnum(Situacion, {message:'Error en situacion'})
     situacion: Situacion;

@@ -2,8 +2,8 @@ import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 import { Servicios } from "src/Servicios/servicios.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-
+import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import * as bcrypt from 'bcrypt';
 @Entity()
 export class Users{
     @PrimaryGeneratedColumn()
@@ -16,7 +16,7 @@ export class Users{
     login: string;
 
     @Column()
-    Contrasenia: string;
+    password: string;
 
     @Column()
     situacion: Situacion;
@@ -42,4 +42,22 @@ export class Users{
         persistence: true,
       })
       agendamiento: Agendamiento[];
+
+
+      //aut
+      @BeforeInsert()
+      @BeforeUpdate()
+      async hashPassword() {
+        if(!this.password){
+          this.password = this.login;
+        }
+        const salt = await bcrypt.genSalt();
+        this.password = await bcrypt.hash(this.password, salt);
+      }
+  
+      async validatePassword(password: string){
+          return await bcrypt.compareSync(password, this.password);
+        }
+
+
 }

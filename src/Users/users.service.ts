@@ -1,19 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ChangeUserPassDto } from './changeUserPass.dto';
 import { UsersDto} from './users.dto';
 import { Users } from './users.entity';
 
-export type User = {
-  Id: number;
-  name: string;
-  username: string;
-  password: string;
-}
-
 @Injectable()
-
 export class UsersService {
+  getUsersByLogin(login: string) {
+    throw new Error("Method not implemented.");
+  }
     constructor(
         @InjectRepository(Users)
         private readonly repository: Repository<Users>,
@@ -49,20 +45,21 @@ export class UsersService {
       }
 
 
-      //Autenticaion 
-      private readonly users = [
-        {
-          Id: 1,
-          name: 'test',
-          username: 'john',
-          password: 'changeme',
-        },
-      ];
-      
-    
-      async findOne(username: string): Promise<User | undefined> {
-        return this.users.find(user => user.username === username);
+      //aut
+      async changePassword(dto:ChangeUserPassDto){
+        const user = await this.repository.findOne({login:dto.login});
+        if(user && await user.validatePassword(dto.password)){
+            const editUser = Object.assign(user,{password:dto.newPassword});
+            return await this.repository.save(editUser);
+        }else{
+            throw new NotFoundException('User dont exist or password incorrect');
+        }
     }
+
+    async getUserByLogin(login:string){
+      return await this.repository.findOne({login});
+  }
+
 }
     
 

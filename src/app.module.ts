@@ -1,24 +1,24 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {CarsModule} from "./cars/cars.module";
 import {UsersModule} from "./Users/users.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
+import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
-import { APP_GUARD } from '@nestjs/core';
-import { use } from 'passport';
 
 @Module({
-  imports: [
+  imports: [ConfigModule.forRoot({
+    envFilePath:'.env'
+  }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test9',
+      database: 'test16',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
@@ -31,7 +31,7 @@ import { use } from 'passport';
     AgendamientoModule,
     AuthModule
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 
