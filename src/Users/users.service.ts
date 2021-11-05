@@ -7,9 +7,7 @@ import { Users } from './users.entity';
 
 @Injectable()
 export class UsersService {
-  getUsersByLogin(login: string) {
-    throw new Error("Method not implemented.");
-  }
+  
     constructor(
         @InjectRepository(Users)
         private readonly repository: Repository<Users>,
@@ -46,23 +44,24 @@ export class UsersService {
 
 
 
+
+      //Auth
       async getUserByLogin(login:string){
         return await this.repository.findOne({login});
     }
-  
-      //aut
-      async changePassword(dto:ChangeUserPassDto){
+
+    async changePassword(dto:ChangeUserPassDto){
         const user = await this.repository.findOne({login:dto.login});
-        if(user && await user.validatePassword(dto.password)){
+        if(user && await user.validatePassword(dto.password))
+        {
             const editUser = Object.assign(user,{password:dto.newPassword});
             return await this.repository.save(editUser);
-        }else{
+        }
+        else
+        {
             throw new NotFoundException('User dont exist or password incorrect');
         }
-    }
-
-
-    
+    }   
 }
     
 

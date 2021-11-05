@@ -30,12 +30,14 @@ export class UsersController {
     const data = await this.service.createOne(dto);
     return data;
   }
+
   @UseGuards(AuthGuard('jwt'))
   @Put(':id')
   async editOne(@Param('id') id: number, @Body() dto: UsersDto) {
     const data = await this.service.editOne(id, dto);
     return data;
   }
+
   @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
   async deleteOne(@Param('id') id: number) {
@@ -45,7 +47,6 @@ export class UsersController {
 
   
   //verificar 
-  @UseGuards(AuthGuard('jwt'))
   @Post("ChangePassword")
     async changePass(@Body() dto: ChangeUserPassDto) {
       const data = await this.service.changePassword(dto);

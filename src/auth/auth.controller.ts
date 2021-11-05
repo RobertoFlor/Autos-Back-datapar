@@ -1,8 +1,9 @@
 import { Body, Controller, Post, UnauthorizedException } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { LoginDTO } from "./login.dto";
 
-
+@ApiTags('Login')
 @Controller('login')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -12,7 +13,7 @@ export class AuthController {
     const { login, password } = loginDTO;
     const valid = await this.authService.validateUser(login, password);
     if (!valid) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Usuario o contraseña incorrecto ...');
     }
     return await this.authService.generateAccessToken(login);
   }

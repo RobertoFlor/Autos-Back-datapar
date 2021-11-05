@@ -48,7 +48,8 @@ export class Users{
       toJSON(){
         return classToPlain(this);
       }
-      //aut
+  
+      //Funciones de autenticacion
       @BeforeInsert()
       @BeforeUpdate()
       async hashPassword() {
@@ -62,6 +63,5 @@ export class Users{
       async validatePassword(password: string){
           return await bcrypt.compareSync(password, this.password);
         }
-
-
+  
 }

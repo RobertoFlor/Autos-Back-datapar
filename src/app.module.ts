@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test18',
+      database: 'test21',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
