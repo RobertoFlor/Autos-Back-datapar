@@ -42,9 +42,6 @@ export class UsersService {
         return await this.repository.delete(id);
       }
 
-
-
-
       //Auth
       async getUserByLogin(login:string){
         return await this.repository.findOne({login});
@@ -59,7 +56,7 @@ export class UsersService {
         }
         else
         {
-            throw new NotFoundException('User dont exist or password incorrect');
+            throw new NotFoundException('Error en el usuario o contraseña ... ');
         }
     }   
 }

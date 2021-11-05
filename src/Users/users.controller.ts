@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ChangeUserPassDto } from './changeUserPass.dto';
 import { UsersDto } from './users.dto';
 import { UsersService } from './users.service';
@@ -11,6 +11,7 @@ export class UsersController {
 
     constructor(readonly service: UsersService) {}
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get()
   async getMany() {
@@ -18,6 +19,7 @@ export class UsersController {
     return { data };
   }
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   async getById(@Param('id', ParseIntPipe) id: number) {
@@ -31,6 +33,7 @@ export class UsersController {
     return data;
   }
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Put(':id')
   async editOne(@Param('id') id: number, @Body() dto: UsersDto) {
@@ -38,6 +41,7 @@ export class UsersController {
     return data;
   }
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
   async deleteOne(@Param('id') id: number) {
@@ -47,10 +51,12 @@ export class UsersController {
 
   
   //verificar 
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
   @Post("ChangePassword")
     async changePass(@Body() dto: ChangeUserPassDto) {
       const data = await this.service.changePassword(dto);
       return data;
     }
-
 }
+
