@@ -7,15 +7,16 @@ import { TipoServicio } from "src/enums/TipoServicio";
 import { Users } from "src/Users/users.entity";
 
 export class ServiciosDto {
-    @IsNotEmpty()
-    cars: Cars;
 
     @IsNotEmpty()
-    users: Users;
+    user: Users;    
 
     @IsNotEmpty()
-    agendamiento: Agendamiento;
+    car: Cars;
 
+    @IsNotEmpty()
+    agendamiento : Agendamiento;
+    
     @IsEnum(TipoServicio, {message: 'Error en tipo servicio'})
     tipoServicio: TipoServicio;
 

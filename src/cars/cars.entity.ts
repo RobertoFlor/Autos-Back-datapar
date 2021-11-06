@@ -41,18 +41,7 @@ export class Cars{
     @Column()
     fechaAlteracion: Date;
 
-    //Para servicios
-    @OneToMany(() => Servicios, (servicios) => servicios.cars, {
-        eager: true,
-        persistence: true,
-      })
-      servicios: Servicios[];
-
-    //Para agendamientos
-    @OneToMany(() => Agendamiento, (agendamiento) => agendamiento.cars, {
-      eager: true,
-      persistence: true,
-    })
-    agendamiento: Agendamiento[];
+    @OneToMany(type => Servicios, servicio => servicio.car,{ cascade: true })
+    servicios: Array<Servicios>;
 
 }

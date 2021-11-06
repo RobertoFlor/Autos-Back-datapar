@@ -29,22 +29,8 @@ export class Agendamiento{
     @Column()
     fechaAlteracion: Date;
 
-    @ManyToOne(() => Cars, (cars) => cars.servicios, {
-        nullable: false,
-        onDelete: 'CASCADE',
-      })
-      cars: Cars;
+    @OneToMany(type => Servicios, servicio => servicio.agendamiento,{ cascade: true })
+    servicios: Array<Servicios>;
 
-      @ManyToOne(() => Users, (users) => users.servicios, {
-        nullable: false,
-        onDelete: 'CASCADE',
-      })
-      users: Users;
-
-      @OneToMany(() => Servicios, (servicios) => servicios.agendamiento, {
-        eager: true,
-        persistence: true,
-      })
-      servicios: Servicios[];
-      
+  
 }

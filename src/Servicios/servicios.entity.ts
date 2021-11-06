@@ -38,22 +38,12 @@ export class Servicios{
     @Column()
     fechaAlteracion: Date;
 
-    @ManyToOne(() => Cars, (cars) => cars.servicios, {
-        nullable: false,
-        onDelete: 'CASCADE',
-      })
-      cars: Cars;
+    @ManyToOne(type => Users, user => user.servicios)
+    user: Users;
 
-      @ManyToOne(() => Users, (users) => users.servicios, {
-        nullable: false,
-        onDelete: 'CASCADE',
-      })
-      users: Users;
+    @ManyToOne(type => Cars, car => car.servicios)
+    car: Cars;
 
-      @ManyToOne(() => Agendamiento, (agendamiento) => agendamiento.servicios, {
-        nullable: false,
-        onDelete: 'CASCADE',
-      })
-      agendamiento: Agendamiento;
-      
+    @ManyToOne(type => Agendamiento, agendamiento => agendamiento.servicios)
+    agendamiento : Agendamiento;
     }

@@ -32,20 +32,11 @@ export class Users{
     @Column()
     fechaAlteracion:Date;
 
-    @OneToMany(() => Servicios, (servicios) => servicios.users, {
-        eager: true,
-        persistence: true,
-      })
-      servicios: Servicios[];
+    @OneToMany(type => Servicios, servicio => servicio.user,{ cascade: true })
+    servicios: Array<Servicios>;
 
-    
-      @OneToMany(() => Agendamiento, (agendamiento) => agendamiento.users, {
-        eager: true,
-        persistence: true,
-      })
-      agendamiento: Agendamiento[];
-
-      toJSON(){
+  
+    toJSON(){
         return classToPlain(this);
       }
   

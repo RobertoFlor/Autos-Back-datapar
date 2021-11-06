@@ -8,12 +8,6 @@ import { Users } from "src/Users/users.entity";
 
 
 export class AgendamientoDto {
-    @IsNotEmpty()
-    cars: Cars;
-
-    @IsNotEmpty()
-    users: Users
-
     @IsString()
     @IsOptional()
     descripcion: string;
