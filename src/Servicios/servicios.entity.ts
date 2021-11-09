@@ -46,4 +46,5 @@ export class Servicios{
 
     @ManyToOne(type => Agendamiento, agendamiento => agendamiento.servicios)
     agendamiento : Agendamiento;
+    
     }

@@ -3,11 +3,18 @@ import { IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { Cars } from "src/cars/cars.entity";
 import { TipoAgendamiento } from "src/enums/TipoAgendamiento";
 import { Uso } from "src/enums/Uso";
+import { Servicios } from "src/Servicios/servicios.entity";
 import { Users } from "src/Users/users.entity";
 
 
 
 export class AgendamientoDto {
+    @IsNotEmpty()
+    car:Cars;
+
+    @IsNotEmpty()
+    user: Users;
+  
     @IsString()
     @IsOptional()
     descripcion: string;

@@ -29,8 +29,13 @@ export class Agendamiento{
     @Column()
     fechaAlteracion: Date;
 
-    @OneToMany(type => Servicios, servicio => servicio.agendamiento,{ cascade: true })
-    servicios: Array<Servicios>;
+    @OneToMany(type => Servicios,servicios => servicios.agendamiento)
+    servicios:Servicios;
 
+    @ManyToOne(type => Cars, car=>car.agendamiento)
+    car:Cars;
+
+    @ManyToOne(type => Users, user=>user.agendamiento)
+    user:Users;
   
 }

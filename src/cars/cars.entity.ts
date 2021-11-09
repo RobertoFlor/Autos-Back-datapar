@@ -44,4 +44,8 @@ export class Cars{
     @OneToMany(type => Servicios, servicio => servicio.car,{ cascade: true })
     servicios: Array<Servicios>;
 
+    @OneToMany(type => Agendamiento,agendamiento => agendamiento.car,{cascade:true})
+     agendamiento:Array<Agendamiento>
+
+
 }

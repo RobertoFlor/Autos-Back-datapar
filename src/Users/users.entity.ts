@@ -35,6 +35,9 @@ export class Users{
     @OneToMany(type => Servicios, servicio => servicio.user,{ cascade: true })
     servicios: Array<Servicios>;
 
+    @OneToMany(type=>Agendamiento,agendamiento=>agendamiento.user,{cascade:true})
+     agendamiento:Array<Agendamiento>;
+
   
     toJSON(){
         return classToPlain(this);
