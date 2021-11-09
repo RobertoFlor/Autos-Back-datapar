@@ -45,7 +45,7 @@ export class Cars{
     servicios: Array<Servicios>;
 
     @OneToMany(type => Agendamiento,agendamiento => agendamiento.car,{cascade:true})
-     agendamiento:Array<Agendamiento>
+    agendamiento:Array<Agendamiento>
 
 
 }

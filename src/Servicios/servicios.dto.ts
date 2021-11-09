@@ -3,11 +3,10 @@ import { IsDate, IsEnum, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Leng
 import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
 import { EstadoServicio } from "src/enums/EstadoServicio";
-import { TipoServicio } from "src/enums/TipoServicio";
+import { TiposServicios } from "src/tipos-servicios/tipos-servicios.entity";
 import { Users } from "src/Users/users.entity";
 
 export class ServiciosDto {
-
     @IsNotEmpty()
     user: Users;    
 
@@ -16,10 +15,10 @@ export class ServiciosDto {
 
     @IsNotEmpty()
     agendamiento : Agendamiento;
-    
-    @IsEnum(TipoServicio, {message: 'Error en tipo servicio'})
-    tipoServicio: TipoServicio;
 
+    @IsNotEmpty()
+    tiposservicio: TiposServicios;
+    
     @IsString()
     @IsOptional()
     descripcion: string;

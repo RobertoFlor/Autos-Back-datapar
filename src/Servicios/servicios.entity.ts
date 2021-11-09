@@ -1,5 +1,7 @@
 import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
+import { TiposServicios } from "src/tipos-servicios/tipos-servicios.entity";
+import { TiposServiciosModule } from "src/tipos-servicios/tipos-servicios.module";
 import { Users } from "src/Users/users.entity";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -7,9 +9,6 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn 
 export class Servicios{
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    tipoServicio: string;
 
     @Column()
     descripcion: string;
@@ -46,5 +45,8 @@ export class Servicios{
 
     @ManyToOne(type => Agendamiento, agendamiento => agendamiento.servicios)
     agendamiento : Agendamiento;
+
+    @ManyToOne(type => TiposServicios, tipoServicio => tipoServicio.servicios)
+    tiposservicio: TiposServicios;
     
     }

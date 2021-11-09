@@ -7,6 +7,7 @@ import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { TiposServiciosModule } from './tipos-servicios/tipos-servicios.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -18,7 +19,7 @@ import { AuthModule } from './auth/auth.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test1',
+      database: 'test19',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
@@ -28,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
     CarsModule,
     UsersModule,
     ServiciosModule,
+    TiposServiciosModule,
     AgendamientoModule,
     AuthModule
   ],

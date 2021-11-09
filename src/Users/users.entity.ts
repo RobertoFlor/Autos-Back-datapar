@@ -36,7 +36,7 @@ export class Users{
     servicios: Array<Servicios>;
 
     @OneToMany(type=>Agendamiento,agendamiento=>agendamiento.user,{cascade:true})
-     agendamiento:Array<Agendamiento>;
+    agendamiento:Array<Agendamiento>;
 
   
     toJSON(){
