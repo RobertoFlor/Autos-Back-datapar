@@ -1,5 +1,6 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { ppid } from 'process';
 import { AppModule } from './app.module';
 import { initSwagger } from './app.swagger';
 
@@ -8,7 +9,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Bootstrap');
   const port = 3000;
-  app.enableCors();
+  const cors = require("cors")
+  app.enableCors
+  app.use(
+    cors({
+      origin: "*",
+    })
+  );
 
   initSwagger(app);
 

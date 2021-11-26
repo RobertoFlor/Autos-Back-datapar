@@ -33,6 +33,3 @@ export class UsersDto {
     fechaAlteracion:Date;
 }
 
-function countryCode(countryCode: any, string: any, arg2: any) {
-    throw new Error("Function not implemented.");
-}
