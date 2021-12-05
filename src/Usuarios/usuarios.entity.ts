@@ -5,13 +5,14 @@ import { Servicios } from "src/Servicios/servicios.entity";
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { classToPlain, Exclude } from "class-transformer";
 import * as bcrypt from 'bcrypt';
+
 @Entity()
-export class Users{
+export class Usuarios{
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    nombreApellido: string;
+    nombre: string;
 
     @Column()
     login: string;
@@ -32,10 +33,10 @@ export class Users{
     @Column()
     fechaAlteracion:Date;
 
-    @OneToMany(type => Servicios, servicio => servicio.user,{ cascade: true })
+    @OneToMany(type => Servicios, servicio => servicio.usuarios,{ cascade: true })
     servicios: Array<Servicios>;
 
-    @OneToMany(type=>Agendamiento,agendamiento=>agendamiento.user,{cascade:true})
+    @OneToMany(type=>Agendamiento,agendamiento=>agendamiento.usuarios,{cascade:true})
     agendamiento:Array<Agendamiento>;
 
   
@@ -43,6 +44,7 @@ export class Users{
         return classToPlain(this);
       }
   
+
       //Funciones de autenticacion
       @BeforeInsert()
       @BeforeUpdate()

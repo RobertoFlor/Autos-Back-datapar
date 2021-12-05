@@ -2,14 +2,14 @@ import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuard
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ChangeUserPassDto } from './changeUserPass.dto';
-import { UsersDto } from './users.dto';
-import { UsersService } from './users.service';
+import { UsuariosDto } from './usuarios.dto';
+import { UsuariosService } from './usuarios.service';
 
-@ApiTags('Users')
-@Controller('users')
-export class UsersController {
+@ApiTags('Usuarios')
+@Controller('usuarios')
+export class UsuariosController {
 
-    constructor(readonly service: UsersService) {}
+    constructor(readonly service: UsuariosService) {}
 
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
@@ -28,7 +28,7 @@ export class UsersController {
   }
 
   @Post()
-  async createPost(@Body() dto: UsersDto) {
+  async createPost(@Body() dto: UsuariosDto) {
     const data = await this.service.createOne(dto);
     return data;
   }
@@ -36,7 +36,7 @@ export class UsersController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Put(':id')
-  async editOne(@Param('id') id: number, @Body() dto: UsersDto) {
+  async editOne(@Param('id') id: number, @Body() dto: UsuariosDto) {
     const data = await this.service.editOne(id, dto);
     return data;
   }

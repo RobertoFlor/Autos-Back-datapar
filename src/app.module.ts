@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import {CarsModule} from "./cars/cars.module";
-import {UsersModule} from "./Users/users.module";
+import { UsuariosModule} from "./Usuarios/usuarios.module";
 import {ServiciosModule} from "./Servicios/servicios.module";
 import { AgendamientoModule } from './Agendamiento/agendamiento.module';
 import { ConfigModule } from '@nestjs/config';
@@ -19,7 +19,7 @@ import { TiposServiciosModule } from './tipos-servicios/tipos-servicios.module';
       port: 5432,
       username: 'postgres',
       password: '673662',
-      database: 'test19',
+      database: 'test32',
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
@@ -27,7 +27,7 @@ import { TiposServiciosModule } from './tipos-servicios/tipos-servicios.module';
       logger: 'file',
     }),
     CarsModule,
-    UsersModule,
+    UsuariosModule,
     ServiciosModule,
     TiposServiciosModule,
     AgendamientoModule,

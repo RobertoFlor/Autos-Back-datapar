@@ -17,4 +17,10 @@ export class AuthController {
     }
     return await this.authService.generateAccessToken(login);
   }
+
+  @Post('check')
+  async checkToken(@Body() token:any){
+  return await this.authService.checkToken(token);
+}
+
 }

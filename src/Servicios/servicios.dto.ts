@@ -4,11 +4,12 @@ import { Agendamiento } from "src/Agendamiento/agendamiento.entity";
 import { Cars } from "src/cars/cars.entity";
 import { EstadoServicio } from "src/enums/EstadoServicio";
 import { TiposServicios } from "src/tipos-servicios/tipos-servicios.entity";
-import { Users } from "src/Users/users.entity";
+import { Usuarios } from "src/Usuarios/usuarios.entity";
+
 
 export class ServiciosDto {
     @IsNotEmpty()
-    user: Users;    
+    usuarios: Usuarios;    
 
     @IsNotEmpty()
     car: Cars;

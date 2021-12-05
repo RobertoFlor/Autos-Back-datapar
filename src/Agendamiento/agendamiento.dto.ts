@@ -5,7 +5,7 @@ import { TipoAgendamiento } from "src/enums/TipoAgendamiento";
 import { Uso } from "src/enums/Uso";
 import { Servicios } from "src/Servicios/servicios.entity";
 import { TiposServicios } from "src/tipos-servicios/tipos-servicios.entity";
-import { Users } from "src/Users/users.entity";
+import { Usuarios } from "src/Usuarios/usuarios.entity";
 
 
 
@@ -14,7 +14,7 @@ export class AgendamientoDto {
     car:Cars;
 
     @IsNotEmpty()
-    user: Users;
+    usuarios: Usuarios;
 
     @IsNotEmpty()
     tiposservicio: TiposServicios;

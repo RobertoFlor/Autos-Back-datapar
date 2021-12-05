@@ -2,15 +2,15 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ChangeUserPassDto } from './changeUserPass.dto';
-import { UsersDto} from './users.dto';
-import { Users } from './users.entity';
+import { UsuariosDto} from './usuarios.dto';
+import { Usuarios } from './usuarios.entity';
 
 @Injectable()
-export class UsersService {
+export class UsuariosService {
   
     constructor(
-        @InjectRepository(Users)
-        private readonly repository: Repository<Users>,
+        @InjectRepository(Usuarios)
+        private readonly repository: Repository<Usuarios>,
       ) {}
       
     
@@ -24,23 +24,24 @@ export class UsersService {
         return post;
       }
     
-      async createOne(dto: UsersDto) {
-        const users = this.repository.create(dto);
-        return await this.repository.save(users);
+      async createOne(dto: UsuariosDto) {
+        const usuarios = this.repository.create(dto);
+        return await this.repository.save(usuarios);
       }
     
-      async editOne(id: number, dto: UsersDto) {
-        const users = await this.repository.findOne(id);
+      async editOne(id: number, dto: UsuariosDto) {
+        const usuarios = await this.repository.findOne(id);
     
-        if (!users) throw new NotFoundException('El id ingresado no existe');
+        if (!usuarios) throw new NotFoundException('El id ingresado no existe');
     
-        const editedUsers = Object.assign(users, dto);
-        return await this.repository.save(editedUsers);
+        const editedUsuarios = Object.assign(usuarios, dto);
+        return await this.repository.save(editedUsuarios);
       }
     
       async deleteOne(id: number) {
         return await this.repository.delete(id);
       }
+
 
       //Auth
       async getUserByLogin(login:string){

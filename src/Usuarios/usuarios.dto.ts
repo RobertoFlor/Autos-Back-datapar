@@ -4,11 +4,11 @@ import { Situacion } from "src/enums/Situacion";
 import { TipoUsuario } from "src/enums/TipoUsuario";
 
 
-export class UsersDto {
+export class UsuariosDto {
     
     @Length(1)
     @IsString()
-    nombreApellido: string;
+    nombre: string;
 
     @IsString()
     @IsOptional()
